@@ -64,7 +64,7 @@ export class AppComponent {
 
         // Init the tweet's text, handle, img and state
         for (let i = 0; i < tweets.length; i++) {
-          this.tweets[i].text = (tweets[i].text.substring(0, 130));
+          this.tweets[i].text = (tweets[i].text);
           this.tweets[i].handle = (tweets[i].handle);
           this.tweets[i].img = (tweets[i].img);
           this.tweets[i].state = (tweets[i].state);

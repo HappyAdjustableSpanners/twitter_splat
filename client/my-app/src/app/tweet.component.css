@@ -11,8 +11,10 @@
     background: white;
     height: 100%;
     width: 100%;
-}
 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 #tweet-container {
     width: 100%;
@@ -43,11 +45,14 @@
     pointer-events: auto;
 }
 
-
 .bad {
     background-color: rgb(255, 163, 163);
 }
 
 .good {
     background-color: rgb(203, 255, 203);
+}
+
+#tweet-txt {
+ 
 }
