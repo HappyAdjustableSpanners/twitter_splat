@@ -1,0 +1,14 @@
+<div id="menu-container" class="container-fluid" (click)="Splat($event)">
+  <app-menu *ngIf="gameState == 'Menu'" id="app-menu" (onStartBtnPressed)="StartGame()"></app-menu>
+  <game-over-menu (playAgainBtnPressed)="PlayAgain()" *ngIf="gameState == 'GameOver'" id="game-over-menu"></game-over-menu>
+  <lives *ngIf="gameState == 'Playing'" [livesLeft]="livesLeft"></lives>
+  <score *ngIf="gameState == 'Playing'" [score]="score"></score>
+  <div class="full-width-height" *ngIf="gameState == 'Playing'">
+    <div class="full-width-height" *ngFor="let tweet of tweets">
+      <tweet (onBadTweetClicked)="IncScore()" (onGoodTweetClicked)="LoseLife()" (onTweetMissed)="LoseLife()" [text]="tweet.text" [img]="tweet.img" [handle]="tweet.handle" [badgood]="tweet.state" [delayTime]="tweet.delay" [speedTime]="tweet.speed"></tweet>
+    </div>
+  </div>
+  <submit-score (submitScore)="SubmitScore($event)" id="submit-score-menu" *ngIf="gameState == 'SubmitScore'"></submit-score>
+</div>
+
+<app-splat *ngIf="showSplat && gameState ==='Playing'" [splatX]="splatX" [splatY]="splatY"></app-splat>

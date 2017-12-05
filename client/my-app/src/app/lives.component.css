@@ -1,0 +1,13 @@
+#lives-list ul {
+    float: left;
+    padding: 0px;
+}
+#lives-list li {
+    display: inline;
+}
+
+#lives-list {
+    position: absolute;
+    top: 20px;
+    right: 65px;
+}

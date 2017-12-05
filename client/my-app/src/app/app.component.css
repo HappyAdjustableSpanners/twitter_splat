@@ -1,0 +1,33 @@
+#menu-container {
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    pointer-events: auto;
+    display: table;
+}
+
+#app-menu {
+    padding:0;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0;
+}
+
+#submit-score-menu {
+    padding:0;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0;
+}
+
+#game-over-menu {
+    padding:0;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0;
+}
+
+#menu-container {
+    overflow: hidden;
+}

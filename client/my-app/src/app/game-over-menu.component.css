@@ -1,0 +1,8 @@
+#main-div {
+    display: inline-block;
+    width:30%;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    pointer-events: auto;
+}
