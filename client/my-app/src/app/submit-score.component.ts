@@ -5,21 +5,15 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   templateUrl: './submit-score.component.html',
   styleUrls: ['./submit-score.component.css']
 })
-export class SubmitScoreComponent implements OnInit {
-
-  constructor() { }
+export class SubmitScoreComponent {
 
   @Output() submitScore: EventEmitter<any> = new EventEmitter<any>();
-  
+
   name: string;
-  ngOnInit() {
-  }
 
-  SubmitScore()
-  {
-  
+  // When button clicked, submit score
+  SubmitScore() {
     this.submitScore.emit(this.name);
-
   }
 
 }

@@ -23,11 +23,15 @@ export class MenuComponent {
 
     @Output() onStartBtnPressed: EventEmitter<any> = new EventEmitter<any>();
 
+    // Start as visible
     state = 'visible';
-    StartGame()
-    {
+
+    StartGame() {
+
+        // When the game starts change to invisible
         this.state = 'invisible';
-        // trigger event emitter as output
+
+        // trigger start event
         this.onStartBtnPressed.emit();
     }
 }

@@ -1,5 +1,5 @@
 <div *ngIf="!done" id="tweet-parent-container" [@myAnimation]='{ value: state, params: { delay: delayTime, speed: speedTime } }' (@myAnimation.done)="animationDone($event)" [ngStyle]="{ 'top': top, 'left': left, 'right':right, 'bottom':bottom, 'width': width, 'height': height }">
-    <div [@clicked]='{ value: clicked }' id="tweet-container">
+    <div [@clicked]='{ value: visibility }' id="tweet-container">
         <div class="embedded-tweet" [ngClass]="(badgood == 'bad')?'bad':'good'">
             <input id="tweet-btn" type="button" (click)="Clicked()">
             <img id="tweet-img" src='{{img}}'>

@@ -5,14 +5,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   templateUrl: './game-over-menu.component.html',
   styleUrls: ['./game-over-menu.component.css']
 })
-export class GameOverMenuComponent implements OnInit {
+export class GameOverMenuComponent {
 
   @Output() playAgainBtnPressed: EventEmitter<any> = new EventEmitter<any>();
-
-  ngOnInit()
-  {
-    // subscribe to high scores
-  }
 
   PlayAgain() {
      // Trigger play again event

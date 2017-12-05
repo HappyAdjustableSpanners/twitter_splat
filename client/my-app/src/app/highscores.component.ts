@@ -10,18 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HighscoresComponent implements OnInit {
 
-  constructor(private highscoresService: HighscoresHandlerService) {
-   }
+  constructor(private highscoresService: HighscoresHandlerService) { }
 
-   highscores: HighScore[] = [];
-   score1: HighScore = new HighScore();
+  highscores: HighScore[] = [];
 
   ngOnInit() {
 
-    // subscribe to high scores ready event emitter
-
+    // Get the top 10 high scores
     this.highscoresService.highscoresReady.subscribe(highscores => {
-        this.highscores = highscores;
+      this.highscores = highscores;
     });
     this.highscoresService.getTopXHighScore(10);
   }

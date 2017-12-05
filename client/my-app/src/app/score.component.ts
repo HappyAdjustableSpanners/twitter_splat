@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { trigger,state,style,transition,animate,keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 @Component({
     selector: 'score',
@@ -17,19 +17,21 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
         ])
       ]
 })
-export class ScoreComponent implements OnChanges{
+export class ScoreComponent implements OnChanges {
 
     @Input() score;
 
+    // Init state as inactive
     state = 'inactive';
 
-    AnimationDone()
-    {
+    AnimationDone() {
+        // when the animation is complete, go back to being inactive
         this.state = 'inactive';
-        console.log('reset state');
     }
 
     ngOnChanges(changes: SimpleChanges) {
+
+        // Whenever the score changes, go back to being active
         this.state = 'active';
     }
 
