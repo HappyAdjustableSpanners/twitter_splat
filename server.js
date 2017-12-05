@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var tasks = require('./routes/tasks');
+var highscores = require('./routes/highscores');
 
 var port = 3000;
 
@@ -28,6 +29,8 @@ app.use('/', index);
 
 // Use /api for the tasks
 app.use('/api', tasks);
+
+app.use('/api', highscores);
 
 app.listen(port, function(){
     console.log('Server started on port' + port);
