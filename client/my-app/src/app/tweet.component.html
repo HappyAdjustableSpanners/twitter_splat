@@ -1,10 +1,17 @@
 <div *ngIf="!done" id="tweet-parent-container" [@myAnimation]='{ value: state, params: { delay: delayTime, speed: speedTime } }' (@myAnimation.done)="animationDone($event)" [ngStyle]="{ 'top': top, 'left': left, 'right':right, 'bottom':bottom, 'width': width, 'height': height }">
     <div [@clicked]='{ value: visibility }' id="tweet-container">
-        <div class="embedded-tweet" [ngClass]="(badgood == 'bad')?'bad':'good'">
+        <div class="embedded-tweet">
+            <div class="row">
             <input id="tweet-btn" type="button" (click)="Clicked()">
-            <img id="tweet-img" src='{{img}}'>
-            <p id="tweet-handle">{{handle}}</p>
-            <p id="tweet-txt">{{text}}</p>
+            </div>
+            <div class="row">
+                <img id="tweet-img" src='{{img}}'>
+                <p id="tweet-handle"><b>{{handle}}</b></p>
+                <div id="indicator"  [ngClass]="(badgood == 'bad')?'bad':'good'"></div>
+            </div>
+            <div class="row">
+                <p id="tweet-txt">{{text}}</p>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 #splat {
     position: fixed;
+    pointer-events: none;
 }
 
 #splat-img {

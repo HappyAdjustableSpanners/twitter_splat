@@ -28,13 +28,13 @@ import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
             trigger('clicked', [
                 state('visible', style({
                     opacity: 1,
-                    transform: 'scale(1)'
+                    transform: 'scale(1) rotate(0deg)'
                 })),
                 state('invisible', style({
                     opacity: 0,
-                    transform: 'scale(1.1)'
+                    transform: 'scale(0) rotate(100deg)'
                 })),
-                transition('visible => invisible', animate('100ms ease-in')),
+                transition('visible => invisible', animate('100ms 200ms ease-in')),
             ])
         ]
 
@@ -54,6 +54,7 @@ export class TweetComponent implements AfterViewInit, OnInit {
     @Output() onGoodTweetClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() onBadTweetClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() onTweetMissed: EventEmitter<any> = new EventEmitter<any>();
+    @Output() tweetDone: EventEmitter<any> = new EventEmitter<any>();
 
 
     // Dynamic styling props
@@ -143,10 +144,11 @@ export class TweetComponent implements AfterViewInit, OnInit {
 
                 // Emit tweet missed event
                 this.onTweetMissed.emit();
-
-                // This tweet is done
-                this.done = true;
             }
+
+            // If the animation is done, whatever the tweet, stop rendering
+            this.done = true;
+            this.tweetDone.emit();
         }
     }
 }

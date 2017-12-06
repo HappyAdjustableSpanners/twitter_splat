@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { AfterViewChecked, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
     selector: 'app-menu',
@@ -8,24 +9,27 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
     animations: [
         trigger('myAnimation', [
           state('visible', style({
-            opacity: 1,
             transform: 'scale(1)'
           })),
           state('invisible',   style({
-            opacity: 0,
-            transform: 'scale(1.1)'
+            transform: 'scale(0)'
           })),
-          transition('visible => invisible', animate('100ms ease-in')),
+          transition('invisible => visible', animate('500ms ease-in-out')),
         ])
       ]
 })
-export class MenuComponent {
+export class MenuComponent implements AfterViewInit {
 
     @Output() onStartBtnPressed: EventEmitter<any> = new EventEmitter<any>();
 
     // Start as visible
-    state = 'visible';
+    state = 'invisible';
 
+    ngAfterViewInit()
+    {
+      this.state = 'visible';
+    }
+    
     StartGame() {
 
         // When the game starts change to invisible

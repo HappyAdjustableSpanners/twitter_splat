@@ -1,7 +1,8 @@
+import { CursorComponent } from './cursor.component';
 import { SplatComponent } from './splat.component';
 import { HighscoresHandlerService } from './services/highscores-handler.service';
 import { TwitterAPIService } from './services/twitter-api.service';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -14,7 +15,12 @@ export class AppComponent {
 
   // Tweets
   tweets: any[] = [];
-  numTweets = 300;
+  tweetsDone = 0;
+  tweetsRolling = true;
+
+  // Setup
+  tweetsPerHandle = 30;
+  numHandles = 4; // at the moment, needs the match how many handles are in the db
 
   // Gameplay
   score = 0;
@@ -24,7 +30,15 @@ export class AppComponent {
   // Splat
   splatX = '0';
   splatY = '0';
-  showSplat = false;
+
+  // mouse
+  mouseX;
+  mouseY;
+
+
+  @ViewChild('cursor')
+
+  private cursor: CursorComponent;
 
   // Get tweets
   constructor(private twitterAPIService: TwitterAPIService, private highscoresService: HighscoresHandlerService) { }
@@ -32,7 +46,11 @@ export class AppComponent {
   Splat($event) {
     this.splatX = '' + $event.clientX;
     this.splatY = '' + $event.clientY;
-    this.showSplat = true;
+
+    if(this.gameState === 'Playing')
+    {
+      this.cursor.Throw();
+    }
   }
 
   // when we click start game button
@@ -48,15 +66,15 @@ export class AppComponent {
   }
 
   GetTweets() {
-    for (let i = 0; i < this.numTweets; i++) {
+    for (let i = 0; i < this.tweetsPerHandle * this.numHandles; i++) {
       const speed = Math.random() * (30 - 6) + 6 + 's';
-      this.tweets.push({ text: 'tmp', handle: 'tmp', img: 'tmp', delay: (i * 5) + 's', speed: speed });
+      this.tweets.push({ text: 'tmp', handle: 'tmp', img: null, delay: (i * 5) + 's', speed: speed });
     }
     // get handles
     this.twitterAPIService.handlesReady.subscribe(handles => {
 
       // Get tweets by handles
-      this.twitterAPIService.getTweets(handles);
+      this.twitterAPIService.getTweets(handles, this.tweetsPerHandle);
       this.twitterAPIService.tweetsReady.subscribe(tweets => {
 
         // Shuffle the received tweets so we get a mixture of authors
@@ -93,6 +111,7 @@ export class AppComponent {
     this.livesLeft = 3;
     this.score = 0;
     this.gameState = 'Menu';
+    this.tweetsDone = 0;
   }
 
 
@@ -125,5 +144,25 @@ export class AppComponent {
       array[index] = temp;
     }
     return array;
+  }
+
+  // Keep track of how many tweets have completed their lifecycle so we can loop back around
+  TweetDone()
+  {
+    this.tweetsDone++;
+
+    if (this.tweetsDone === this.tweetsPerHandle * this.numHandles && this.livesLeft > 0)
+    {
+      // Loop back around
+      console.log('All tweets complete');
+      this.tweetsRolling = false;
+      setTimeout(() => { this.tweetsRolling = true; this.tweetsDone = 0; } , 1000);
+    }
+  }
+
+  coordinates($event)
+  {
+    this.mouseX = $event.clientX;
+    this.mouseY = $event.clientY;
   }
 }

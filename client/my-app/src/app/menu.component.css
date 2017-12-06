@@ -5,12 +5,17 @@
     text-align: center;
     pointer-events: auto;
     background-color: white;
+    
 }
 
 #main-div {
     display: inline-block;
     width:30%;
     height: auto;
-    background-color: white;
+
     border-radius: 10px;
+}
+
+#title {
+    font-size: 100px;
 }

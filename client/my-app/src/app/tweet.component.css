@@ -1,19 +1,22 @@
 
 #tweet-img {
     border-radius: 4px;
+    padding-left: 
 }
 
 .embedded-tweet {
-    padding: 20px 20px 11.6px 20px;
+    padding: 20px 20px 11.6px 30px;
     border: 1px solid #e1e8ed;
     border-width: 0 1px 1px;
-    border-radius: 0 0 4px 4px;
+    border-radius: 2%;
     background: white;
     height: 100%;
     width: 100%;
 
     overflow: hidden;
     text-overflow: ellipsis;
+
+    text-align: left;
 }
 
 #tweet-container {
@@ -45,14 +48,23 @@
     pointer-events: auto;
 }
 
+#tweet-handle {
+    padding-left: 10px;
+}
+
 .bad {
-    background-color: rgb(255, 163, 163);
+    background-color: rgb(207, 13, 13);
 }
 
 .good {
-    background-color: rgb(203, 255, 203);
+    background-color: rgb(13, 161, 13);
+}
+
+#indicator {
+    width: 5px;
+    height: 5px;
 }
 
 #tweet-txt {
- 
+    padding-top: 10px;
 }

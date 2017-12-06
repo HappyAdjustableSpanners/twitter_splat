@@ -31,21 +31,21 @@ export class TwitterAPIService {
         });
     }
 
-    getTweets(handles: any[]) {
+    getTweets(handles: any[], numTweets: number) {
 
         let tweets = [];
 
         let count = 0;
-
         for ( let i = 0; i < handles.length; i++)
         {
             // For each handle, make an api call
-            this.http.get(`http://localhost:3000/handles/` + handles[i]['handle']).toPromise().then(
+            this.http.get(`http://localhost:3000/tweets?handle=` + handles[i]['handle'] + '&count=' + numTweets).toPromise().then(
                 response => {
 
                     // Only use this handle if they have least 100 tweets
-                    if (response.json().length < 100)
+                    if (response.json().length < numTweets)
                     {
+                        console.log('user ' + handles[i]['handle'] + ' does not have enough tweets, skipping user');
                         count++;
                         return;
                     }

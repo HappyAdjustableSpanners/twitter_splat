@@ -16,6 +16,7 @@ import { LifeComponent } from './life.component';
 import { GameOverMenuComponent } from './game-over-menu.component';
 import { SubmitScoreComponent } from './submit-score.component';
 import { SplatComponent } from './splat.component';
+import { CursorComponent } from './cursor.component';
 
 
 
@@ -31,6 +32,7 @@ import { SplatComponent } from './splat.component';
     HighscoresComponent,
     SubmitScoreComponent,
     SplatComponent,
+    CursorComponent,
   ],
   imports: [
     BrowserModule,

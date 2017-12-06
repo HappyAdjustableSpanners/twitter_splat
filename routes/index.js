@@ -3,7 +3,7 @@ var router = express.Router();
 
 var Twit = require('twit');
 
-router.get('/handles/:handle', function(req, res, next) {
+router.get('/tweets', function(req, res, next) {
 
     var T = new Twit({
             consumer_key: 'Xw1qsOqbjUZki4KdrxxA1KDae',
@@ -12,8 +12,8 @@ router.get('/handles/:handle', function(req, res, next) {
             access_token_secret: 'zOfQp2bBUgBOZpdib8JAxYg1wr3kbcvihSaWPYnbw2fec'
     });
 
-    var options = { screen_name: req.params.handle,
-    count: 100 };
+    var options = { screen_name: req.query.handle,
+    count: req.query.count };
 
     console.log(options);
 

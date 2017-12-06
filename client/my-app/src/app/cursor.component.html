@@ -1,0 +1,5 @@
+<div id="main-div" [style.left.px]="X - 50" [style.top.px] = "Y - 50">
+  <img [@hand1]="{value: hand1State}" (@hand1.done)="AnimationEnd()" src="/assets/hand-1.png">
+  <img [@hand2]="{value: hand2State}" src="/assets/hand-2.png">
+</div>
+

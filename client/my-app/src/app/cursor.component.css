@@ -1,0 +1,12 @@
+#main-div {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    
+    position: relative;
+}
+
+#main-div > img {
+    position: absolute;
+    max-width: 200px;
+}
