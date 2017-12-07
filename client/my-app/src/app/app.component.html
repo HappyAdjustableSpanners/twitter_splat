@@ -4,9 +4,9 @@
   <lives *ngIf="gameState == 'Playing'" [livesLeft]="livesLeft"></lives>
   <score *ngIf="gameState == 'Playing'" [score]="score"></score>
   <div class="full-width-height" *ngIf="gameState == 'Playing' && tweetsRolling">
-    <div class="full-width-height" *ngFor="let tweet of tweets">
-      <tweet (tweetDone)="TweetDone()" (onBadTweetClicked)="IncScore()" (onGoodTweetClicked)="LoseLife()" (onTweetMissed)="LoseLife()" [text]="tweet.text" [img]="tweet.img" [handle]="tweet.handle" [badgood]="tweet.state" [delayTime]="tweet.delay" [speedTime]="tweet.speed"></tweet>
-    </div>
+      <div class="full-width-height" *ngFor="let tweet of tweets">
+        <tweet (tweetDone)="TweetDone()" (onBadTweetClicked)="IncScore()" (onGoodTweetClicked)="LoseLife()" (onTweetMissed)="LoseLife()" [text]="tweet.text" [img]="tweet.img" [handle]="tweet.handle" [badgood]="tweet.state" [delayTime]="tweet.delay" [speedTime]="tweet.speed"></tweet>
+      </div>
   </div>
   <submit-score (submitScore)="SubmitScore($event)" id="submit-score-menu" *ngIf="gameState == 'SubmitScore'"></submit-score>
 </div>

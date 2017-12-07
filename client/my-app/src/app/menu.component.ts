@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { AfterViewChecked, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -20,14 +20,17 @@ import { AfterViewChecked, AfterViewInit } from '@angular/core/src/metadata/life
 })
 export class MenuComponent implements AfterViewInit {
 
-    @Output() onStartBtnPressed: EventEmitter<any> = new EventEmitter<any>();
+    constructor(private cdRef: ChangeDetectorRef) {}
 
+    @Output() onStartBtnPressed: EventEmitter<any> = new EventEmitter<any>();
+  
     // Start as visible
     state = 'invisible';
 
     ngAfterViewInit()
     {
       this.state = 'visible';
+      this.cdRef.detectChanges();
     }
     
     StartGame() {

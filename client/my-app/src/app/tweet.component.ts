@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
     selector: 'tweet',
@@ -41,6 +42,8 @@ import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
     ]
 })
 export class TweetComponent implements AfterViewInit, OnInit {
+
+    constructor(private cdRef: ChangeDetectorRef) {}
 
     // Tweet attributes
     @Input() text;
@@ -132,6 +135,8 @@ export class TweetComponent implements AfterViewInit, OnInit {
         } else if (this.state === 'tToB') {
             this.state = 'bToT';
         }
+
+        this.cdRef.detectChanges();
     }
 
     animationDone($event) {

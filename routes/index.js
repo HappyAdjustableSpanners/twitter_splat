@@ -5,6 +5,9 @@ var Twit = require('twit');
 
 router.get('/tweets', function(req, res, next) {
 
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    
     var T = new Twit({
             consumer_key: 'Xw1qsOqbjUZki4KdrxxA1KDae',
             consumer_secret: 'q5zn81G2jeBUi4S7BUCjl0KmSCMeT5NmqQF1vQM4aSbzs6GOB4',
