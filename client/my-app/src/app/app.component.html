@@ -8,7 +8,7 @@
         <tweet (tweetDone)="TweetDone()" (onBadTweetClicked)="IncScore()" (onGoodTweetClicked)="LoseLife()" (onTweetMissed)="LoseLife()" [text]="tweet.text" [img]="tweet.img" [handle]="tweet.handle" [badgood]="tweet.state" [delayTime]="tweet.delay" [speedTime]="tweet.speed"></tweet>
       </div>
   </div>
-  <submit-score (submitScore)="SubmitScore($event)" id="submit-score-menu" *ngIf="gameState == 'SubmitScore'"></submit-score>
+  <submit-score (submitScore)="SubmitScore($event)" id="submit-score-menu" *ngIf="gameState == 'SubmitScore'" [score]="score"></submit-score>
 </div>
 
 <app-splat *ngIf="gameState ==='Playing'" [splatX]="splatX" [splatY]="splatY"></app-splat>

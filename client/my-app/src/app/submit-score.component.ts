@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'submit-score',
@@ -8,6 +8,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class SubmitScoreComponent {
 
   @Output() submitScore: EventEmitter<any> = new EventEmitter<any>();
+  @Input() score;
 
   name: string;
 

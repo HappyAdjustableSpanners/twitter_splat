@@ -24,7 +24,7 @@ export class AppComponent {
 
   // Gameplay
   score = 0;
-  livesLeft = 3;
+  livesLeft = 1;
   gameState = 'Menu';
 
   // Splat

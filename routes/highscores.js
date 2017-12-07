@@ -5,6 +5,7 @@ var db = mongojs('mongodb://jholmes:db123@ds113936.mlab.com:13936/jholmes', ['hi
 
 // get all scores
 router.get('/highscores', function(req, res, next) {
+
     console.log("getting");
     db.highscores.find(function(err, highscores) {
         if(err)
@@ -17,7 +18,7 @@ router.get('/highscores', function(req, res, next) {
 
 // Post highscore
 router.post('/highscores', function(req, res, next) {
-    console.log("posting");
+
     var score = req.body;
     if(!score.name || !(score.score ))
     {
