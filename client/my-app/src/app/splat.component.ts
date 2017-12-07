@@ -9,7 +9,6 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
   animations: [
     trigger('myAnimation', [
       state('visible', style({
- 
       })),
       state('invisible', style({
         opacity: 0

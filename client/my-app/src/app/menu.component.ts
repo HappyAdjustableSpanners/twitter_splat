@@ -23,22 +23,26 @@ export class MenuComponent implements AfterViewInit {
     constructor(private cdRef: ChangeDetectorRef) {}
 
     @Output() onStartBtnPressed: EventEmitter<any> = new EventEmitter<any>();
-  
+
     // Start as visible
     state = 'invisible';
+    imageUrl = 'assets/btn-start-up.png';
 
-    ngAfterViewInit()
-    {
+    ngAfterViewInit() {
       this.state = 'visible';
       this.cdRef.detectChanges();
     }
-    
+
     StartGame() {
 
+        this.imageUrl = 'assets/btn-start-down.png';
+
+        setTimeout(() => {
         // When the game starts change to invisible
         this.state = 'invisible';
 
         // trigger start event
         this.onStartBtnPressed.emit();
+      }, 50);
     }
 }

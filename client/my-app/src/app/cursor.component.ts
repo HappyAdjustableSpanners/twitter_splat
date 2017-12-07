@@ -37,15 +37,13 @@ export class CursorComponent {
   @Input() X;
   @Input() Y;
 
-  Throw()
-  {
+  Throw() {
     // Trigger animation which has 3 keyframes, then goes back to first state on animation end
     this.hand1State = 'invisible';
     this.hand2State = 'visible';
   }
 
-  AnimationEnd()
-  {
+  AnimationEnd() {
     this.hand1State = 'visible';
     this.hand2State = 'invisible';
   }

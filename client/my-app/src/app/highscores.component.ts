@@ -1,6 +1,6 @@
 import { HighScore } from './models/highscore';
 import { HighscoresHandlerService } from './services/highscores-handler.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'highscores',
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HighscoresComponent implements OnInit {
 
-  constructor(private highscoresService: HighscoresHandlerService) { }
+  constructor(private highscoresService: HighscoresHandlerService) {}
 
   highscores: HighScore[] = [];
 
@@ -20,6 +20,6 @@ export class HighscoresComponent implements OnInit {
     this.highscoresService.highscoresReady.subscribe(highscores => {
       this.highscores = highscores;
     });
-    this.highscoresService.getTopXHighScore(10);
+    this.highscoresService.getTopXHighScore(5);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'game-over-menu',
@@ -6,7 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./game-over-menu.component.css']
 })
 export class GameOverMenuComponent {
-
+  
   @Output() playAgainBtnPressed: EventEmitter<any> = new EventEmitter<any>();
 
   PlayAgain() {

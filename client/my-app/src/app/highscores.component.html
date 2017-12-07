@@ -1,6 +1,15 @@
 <div *ngFor="let score of highscores">
     <div class="row">
-        <p class="col-md-6">{{score.score}}</p>
-        <p class="col-md-6">{{score.name}}</p>
+        <p id="score-num" class="col-md-6 font-29"><b>{{score.score}}</b></p>
+        <p id="score-name" class="col-md-6 font-29">{{score.name}}</p>
     </div>
+    <hr>
+</div>
+<div class="row">
+        <div class="col-md-6 no-padding">
+          <fb-share-btn></fb-share-btn>
+        </div>
+        <div class="col-md-6 no-padding">
+          <twit-share-btn></twit-share-btn>
+        </div>
 </div>

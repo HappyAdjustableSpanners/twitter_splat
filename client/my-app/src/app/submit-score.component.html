@@ -1,13 +1,41 @@
-<p id="score-txt">
-    You scored {{score}}!
-</p>
-<div id="main-div">
+<div class="container">
   <div class="row">
-    <div class="col-md-6 no-padding">
-        <input placeholder="name" type="text" id="input-name" [(ngModel)]="name"/> 
-    </div>
-    <div class="col-md-6 no-padding">
-      <input class="btn" type="button" id="submit-btn" value="Submit" (click)="SubmitScore()">
+    <div class="col-md-6 offset-md-3 no-padding">
+      <div id="upper-div">
+          <div class="row">
+              <div class="col-md-12">
+                <!-- Game over -->
+                <b><p class="font-29" id="game-over-txt" >Game Over</p></b>
+              </div>
+            </div>
+      </div>
+      <div id="lower-div">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- You score -->
+            <b><p class="font-58">You scored</p></b>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Score -->
+            <p id="score-txt">{{score}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Enter your name -->
+            <b><p class="font-29">Enter your name</p></b>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Name and submit button -->
+            <b><input class="font-27" id="input-name" type="text" placeholder="Name" [(ngModel)]="name"></b>
+            <b><input class="font-27" id="input-save" type="button" value="Save" (click)="SubmitScore()"></b>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

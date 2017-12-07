@@ -1,3 +1,4 @@
+import { ScoreServiceService } from './score-service.service';
 import { HighscoresComponent } from './highscores.component';
 import { LivesComponent } from './lives.component';
 import { ScoreComponent } from './score.component';
@@ -17,6 +18,8 @@ import { GameOverMenuComponent } from './game-over-menu.component';
 import { SubmitScoreComponent } from './submit-score.component';
 import { SplatComponent } from './splat.component';
 import { CursorComponent } from './cursor.component';
+import { FbShareBtnComponent } from './fb-share-btn.component';
+import { TwitShareBtnComponent } from './twit-share-btn.component';
 
 
 
@@ -33,6 +36,8 @@ import { CursorComponent } from './cursor.component';
     SubmitScoreComponent,
     SplatComponent,
     CursorComponent,
+    FbShareBtnComponent,
+    TwitShareBtnComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { CursorComponent } from './cursor.component';
     FormsModule,
     BrowserAnimationsModule,
   ],
-  providers: [TwitterHandleService],
+  providers: [TwitterHandleService, ScoreServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

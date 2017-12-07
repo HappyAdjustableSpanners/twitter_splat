@@ -1,6 +1,24 @@
-<div id="main-div">
-    <p><b>Game Over</b></p>
-    <p>High Scores</p>
-    <highscores></highscores>
-    <input class="btn" type="button" value="Play Again" (click)="PlayAgain()">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 no-padding">
+            <div id="upper-div">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Game over -->
+                        <b>
+                            <p class="font-29" id="high-scores-txt">High Scores</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <div id="lower-div">
+                <highscores></highscores>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input id="play-again-btn" type="button" class="btn" value="Play Again" (click)="PlayAgain()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

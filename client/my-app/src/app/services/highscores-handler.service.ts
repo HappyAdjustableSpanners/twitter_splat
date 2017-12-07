@@ -34,9 +34,9 @@ export class HighscoresHandlerService {
         });
 
         // grab the first 10 numbers
-        let firstTen = data.slice(0, 10);
+        let firstX = data.slice(0, x);
 
-        this.highscoresReady.emit(firstTen);
+        this.highscoresReady.emit(firstX);
     });
   }
 

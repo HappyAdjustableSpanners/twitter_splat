@@ -14,8 +14,7 @@ export class SubmitScoreComponent {
 
   // When button clicked, submit score
   SubmitScore() {
-    if(this.name !== undefined)
-    {
+    if (this.name !== undefined) {
       this.submitScore.emit(this.name);
     }
   }

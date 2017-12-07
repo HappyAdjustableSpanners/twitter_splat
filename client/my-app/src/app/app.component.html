@@ -1,5 +1,9 @@
 <div id="menu-container" class="container-fluid" (click)="Splat($event)" (mousemove)="coordinates($event)">
+
+
   <app-menu *ngIf="gameState == 'Menu'" id="app-menu" (onStartBtnPressed)="StartGame()"></app-menu>
+
+  
   <game-over-menu (playAgainBtnPressed)="PlayAgain()" *ngIf="gameState == 'GameOver'" id="game-over-menu"></game-over-menu>
   <lives *ngIf="gameState == 'Playing'" [livesLeft]="livesLeft"></lives>
   <score *ngIf="gameState == 'Playing'" [score]="score"></score>

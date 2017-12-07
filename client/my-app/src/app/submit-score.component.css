@@ -1,26 +1,59 @@
-#main-div {
-    display: inline-block;
-    width:30%;
-    height: auto;
-    background-color: white;
-    pointer-events: auto;
-    border-radius: 10px;
+#lower-div {
+    border-radius: 0px 0px 35px 35px;
+    border: 10px solid #ffffff;
+    border-width: 0px 10px 10px 10px;
+    min-width: 100%;
+
+    font-family: Kalam;
+    color: white;
+    padding: 20px;
 }
 
-#submit-btn {
-    width: 100%;
-    height: 100%;
-    font-size: xx-large;
-    text-align: center;
-    pointer-events: auto;
-    background-color: white;
+#upper-div p {
+    margin: 0;
+}
+
+#lower-div p {
+    margin: 0;
+}
+
+#upper-div {
+    border-radius: 35px 35px 0px 0px;
+    border: 10px solid #ffffff;
+    border-width: 10px 10px 10px 10px;
+
+    min-width: 100%;
+
+    font-family: Kalam;
+    color: white;
+    padding: 20px;
 }
 
 #input-name {
-    width: 100%;
-    height: 100%;
+    margin-right: -6px;
+    height: 40px;
+    border-radius: 5px 0px 0px 5px;
+    border-width: 0;
+    padding: 6px;
+    color: #0FC2F2
+}
+
+#input-save {
+    background-color: #592c2b;
+    border: 0;
+    border-radius: 0px 5px 5px 0px;
+    color:white;
+    height: 40px;
+}
+
+#game-over-txt {
+    margin: 0;
 }
 
 #score-txt {
-    font-size: 100px;
+    font-family: VT323;
+    font-size: 95px;
+    color: #592c2b;
 }
+
+

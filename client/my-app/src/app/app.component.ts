@@ -3,6 +3,7 @@ import { SplatComponent } from './splat.component';
 import { HighscoresHandlerService } from './services/highscores-handler.service';
 import { TwitterAPIService } from './services/twitter-api.service';
 import { Component, ViewChild } from '@angular/core';
+import { ScoreServiceService } from './score-service.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class AppComponent {
 
   // Gameplay
   score = 0;
-  livesLeft = 1;
+  livesLeft = 3;
   gameState = 'Menu';
 
   // Splat
@@ -41,14 +42,17 @@ export class AppComponent {
   private cursor: CursorComponent;
 
   // Get tweets
-  constructor(private twitterAPIService: TwitterAPIService, private highscoresService: HighscoresHandlerService) { }
+  constructor(
+    private twitterAPIService: TwitterAPIService,
+    private highscoresService: HighscoresHandlerService,
+    private scoreService: ScoreServiceService
+  ) { }
 
   Splat($event) {
     this.splatX = '' + $event.clientX;
     this.splatY = '' + $event.clientY;
 
-    if(this.gameState === 'Playing')
-    {
+    if (this.gameState === 'Playing') {
       this.cursor.Throw();
     }
   }
@@ -129,6 +133,7 @@ export class AppComponent {
     if (this.livesLeft === 0) {
 
       // Change state to our submit score menu
+      this.scoreService.SetScore(this.score);
       this.gameState = 'SubmitScore';
     }
   }
@@ -147,12 +152,10 @@ export class AppComponent {
   }
 
   // Keep track of how many tweets have completed their lifecycle so we can loop back around
-  TweetDone()
-  {
+  TweetDone() {
     this.tweetsDone++;
 
-    if (this.tweetsDone === this.tweetsPerHandle * this.numHandles && this.livesLeft > 0)
-    {
+    if (this.tweetsDone === this.tweetsPerHandle * this.numHandles && this.livesLeft > 0) {
       // Loop back around
       console.log('All tweets complete');
       this.tweetsRolling = false;
@@ -160,8 +163,7 @@ export class AppComponent {
     }
   }
 
-  coordinates($event)
-  {
+  coordinates($event) {
     this.mouseX = $event.clientX;
     this.mouseY = $event.clientY;
   }

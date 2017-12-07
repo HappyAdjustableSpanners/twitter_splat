@@ -5,4 +5,45 @@
     background-color: white;
     border-radius: 10px;
     pointer-events: auto;
+    padding: 10px;
+}
+
+#high-scores-txt {
+    margin: 0;
+}
+
+#lower-div {
+    border-radius: 0px 0px 35px 35px;
+    border: 10px solid #ffffff;
+    border-width: 0px 10px 10px 10px;
+    min-width: 100%;
+
+    font-family: Kalam;
+    color: white;
+    padding: 20px;
+}
+
+#upper-div p {
+    margin: 0;
+}
+
+#lower-div p {
+    margin: 0;
+}
+
+#upper-div {
+    border-radius: 35px 35px 0px 0px;
+    border: 10px solid #ffffff;
+    border-width: 10px 10px 10px 10px;
+
+    min-width: 100%;
+
+    font-family: Kalam;
+    color: white;
+    padding: 20px;
+}
+
+#play-again-btn {
+    background-color: #592c2b;
+    color: white;
 }
