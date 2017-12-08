@@ -28,14 +28,25 @@ import { ChangeDetectorRef } from '@angular/core';
         [
             trigger('clicked', [
                 state('visible', style({
-                    opacity: 1,
-                    transform: 'scale(1) rotate(0deg)'
+                    backgroundColor: 'white',
                 })),
-                state('invisible', style({
-                    opacity: 0,
-                    transform: 'scale(0) rotate(100deg)'
+                state('invisible-red', style({
+                    opacity: 0
                 })),
-                transition('visible => invisible', animate('100ms 200ms ease-in')),
+                state('invisible-green', style({
+                    opacity: 0
+                })),
+
+                transition('visible => invisible-red', animate('800ms ease-in', keyframes([
+                    style({opacity: 1, transform: 'scale(1) rotate(0deg)', backgroundColor: 'white', offset: 0}),
+                    style({opacity: 1, transform: 'scale(1) rotate(0deg)', backgroundColor: '#ba1c21', offset: 0.2}),
+                    style({opacity: 0, transform: 'scale(0) rotate(100deg)', backgroundColor: '#ba1c21', offset: 1.0})
+                ]))),
+                transition('visible => invisible-green', animate('800ms ease-in', keyframes([
+                    style({opacity: 1, transform: 'scale(1) rotate(0deg)', backgroundColor: 'white', offset: 0}),
+                    style({opacity: 1, transform: 'scale(1) rotate(0deg)', backgroundColor: '#008e4a', offset: 0.2}),
+                    style({opacity: 0, transform: 'scale(0) rotate(100deg)', backgroundColor: '#008e4a', offset: 1.0})
+                ]))),
             ])
         ]
 
@@ -68,7 +79,6 @@ export class TweetComponent implements AfterViewInit, OnInit {
     right: string;
     width = '25%';
     height = '25%';
-    color = 'red';
 
     // Animation
     done = false;
@@ -79,12 +89,11 @@ export class TweetComponent implements AfterViewInit, OnInit {
         // Emit click events
         if (this.badgood === 'good' && this.visibility !== 'invisible') {
             this.onGoodTweetClicked.emit();
+            this.visibility = 'invisible-red';
         } else if (this.badgood === 'bad') {
             this.onBadTweetClicked.emit();
+            this.visibility = 'invisible-green';
         }
-
-        // Change visibility to invisible
-        this.visibility = 'invisible';
     }
 
     ngOnInit() {
@@ -145,7 +154,7 @@ export class TweetComponent implements AfterViewInit, OnInit {
         if (this.text !== 'tmp' && $event.toState !== 'void' && $event.fromState !== 'void') {
 
             // If this is a bad tweet, and it is not currently invisible (e.g. it hasn't already been clicked)
-            if (this.badgood === 'bad' && this.visibility !== 'invisible') {
+            if (this.badgood === 'bad' && this.visibility !== 'invisible-red' && this.visibility !== 'invisible-green') {
 
                 // Emit tweet missed event
                 this.onTweetMissed.emit();

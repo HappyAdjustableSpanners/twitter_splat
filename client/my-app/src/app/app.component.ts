@@ -21,7 +21,7 @@ export class AppComponent {
 
   // Setup
   tweetsPerHandle = 30;
-  numHandles = 4; // at the moment, needs the match how many handles are in the db
+  numHandles = 6; // at the moment, needs the match how many handles are in the db
 
   // Gameplay
   score = 0;
@@ -77,10 +77,14 @@ export class AppComponent {
     // get handles
     this.twitterAPIService.handlesReady.subscribe(handles => {
 
+      console.log('Gotten handles');
+
+      console.log('Calling get tweets');
       // Get tweets by handles
       this.twitterAPIService.getTweets(handles, this.tweetsPerHandle);
       this.twitterAPIService.tweetsReady.subscribe(tweets => {
 
+        console.log('Gotten tweets');
         // Shuffle the received tweets so we get a mixture of authors
         tweets = this.shuffle(tweets);
 
@@ -92,8 +96,10 @@ export class AppComponent {
           this.tweets[i].state = (tweets[i].state);
         }
         console.log(this.tweets);
+        console.log('Finished retrieving tweets');
       });
     });
+    console.log('Calling get handles');
     this.twitterAPIService.getHandles();
   }
 

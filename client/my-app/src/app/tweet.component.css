@@ -4,11 +4,8 @@
 }
 
 .embedded-tweet {
-    padding: 20px 20px 11.6px 30px;
-    border: 1px solid #e1e8ed;
-    border-width: 0 1px 1px;
-    border-radius: 2%;
-    background: white;
+
+    padding: 10px 20px 20px 20px;
     height: 100%;
     width: 100%;
 
@@ -16,13 +13,18 @@
     text-overflow: ellipsis;
 
     text-align: left;
-    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
 }
 
 #tweet-container {
     width: 70%;
     height: 70%;
     word-wrap: break-word;
+    padding: 5px 10px 10px 10px;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+
+    border: 1px solid #e1e8ed;
+    border-width: 0 1px 1px;
+    border-radius: 2%;
 }
 
 #tweet-parent-container {
@@ -39,8 +41,8 @@
 }
 
 #tweet-btn {
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
     left: 0;
     top: 0;
     position: absolute;
@@ -53,11 +55,11 @@
 }
 
 .bad {
-    background-color: rgb(207, 13, 13);
+    /* background-color: rgb(207, 13, 13); */
 }
 
 .good {
-    background-color: rgb(13, 161, 13);
+    /* background-color: rgb(13, 161, 13); */
 }
 
 #indicator {

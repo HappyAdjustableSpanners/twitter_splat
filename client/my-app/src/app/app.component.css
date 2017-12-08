@@ -37,3 +37,16 @@
     top: 0;
     left: 0;
 }
+
+#whd {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-family: Kalam;
+    padding-right: 10px;
+    color: white;
+}
+
+#whd img {
+    max-width: 15px;
+}

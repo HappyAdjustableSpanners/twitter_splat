@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 @Component({
@@ -21,6 +21,8 @@ export class ScoreComponent implements OnChanges {
 
     @Input() score;
 
+    constructor(private cdRef: ChangeDetectorRef) {}
+
     // Init state as inactive
     state = 'inactive';
 
@@ -33,6 +35,8 @@ export class ScoreComponent implements OnChanges {
 
         // Whenever the score changes, go back to being active
         this.state = 'active';
+
+        this.cdRef.detectChanges();
     }
 
 }
