@@ -20,6 +20,8 @@ import { SplatComponent } from './splat.component';
 import { CursorComponent } from './cursor.component';
 import { FbShareBtnComponent } from './fb-share-btn.component';
 import { TwitShareBtnComponent } from './twit-share-btn.component';
+import { SettingsComponentComponent } from './settings-component.component';
+import { AdminLoginComponent } from './admin-login.component';
 
 
 
@@ -38,6 +40,8 @@ import { TwitShareBtnComponent } from './twit-share-btn.component';
     CursorComponent,
     FbShareBtnComponent,
     TwitShareBtnComponent,
+    SettingsComponentComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -63,21 +63,40 @@ export class AppComponent {
     // Set state to playing
     this.gameState = 'Playing';
 
+
+    // Get num handles
+
+
     // If we haven't already pulled any tweets (from the twitter API)
     if (this.tweets.length === 0) {
       this.GetTweets();
     }
   }
 
-  GetTweets() {
-    for (let i = 0; i < this.tweetsPerHandle * this.numHandles; i++) {
-      const speed = Math.random() * (30 - 6) + 6 + 's';
-      this.tweets.push({ text: 'tmp', handle: 'tmp', img: null, delay: (i * 5) + 's', speed: speed });
+  SettingsClicked()
+  {
+    if(this.gameState === 'Menu')
+    {
+      this.gameState = 'login';
     }
+    else if(this.gameState === 'Settings')
+    {
+      this.gameState = 'Menu';
+    }
+  }
+
+  GetTweets() {
+
     // get handles
     this.twitterAPIService.handlesReady.subscribe(handles => {
 
-      console.log('Gotten handles');
+      this.numHandles = Object.keys(handles).length;
+      for (let i = 0; i < this.tweetsPerHandle * this.numHandles; i++) {
+        const speed = Math.random() * (30 - 6) + 6 + 's';
+        this.tweets.push({ text: 'tmp', handle: 'tmp', img: null, delay: (i * 4) + 's', speed: speed });
+      }
+
+      console.log('Gotten handles, ' + this.numHandles + ' of them');
 
       console.log('Calling get tweets');
       // Get tweets by handles
@@ -101,6 +120,10 @@ export class AppComponent {
     });
     console.log('Calling get handles');
     this.twitterAPIService.getHandles();
+  }
+
+  LogIn() {
+    this.gameState = 'Settings';
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
@@ -30,7 +30,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 })
 export class CursorComponent {
 
-  constructor() { }
+  constructor(private cdRef: ChangeDetectorRef) {}
 
   hand1State = 'visible';
   hand2State = 'invisible';
@@ -41,10 +41,14 @@ export class CursorComponent {
     // Trigger animation which has 3 keyframes, then goes back to first state on animation end
     this.hand1State = 'invisible';
     this.hand2State = 'visible';
+
+    this.cdRef.detectChanges();
   }
 
   AnimationEnd() {
     this.hand1State = 'visible';
     this.hand2State = 'invisible';
+
+    this.cdRef.detectChanges();
   }
 }

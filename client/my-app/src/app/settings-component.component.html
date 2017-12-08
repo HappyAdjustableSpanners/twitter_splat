@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 no-padding">
+      <div id="upper-div">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Game over -->
+            <b>
+              <p class="font-29" id="settings-txt">Handle Settings</p>
+            </b>
+          </div>
+        </div>
+      </div>
+      <div id="lower-div">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- list of handles -->
+            <form class="well" (submit)="addHandle($event)">
+              <div class="form-group">
+                <input id="input-handle" type="text" class="form-control" [(ngModel)]="handle" name="handle" placeholder="Add handle">
+                <input type="button" class="btn" [ngClass]="(btnState == 'good')?'btn-good':'btn-off'" value="Good" (click)="btnGoodClicked()"> 
+                <input type="button" class="btn" [ngClass]="(btnState == 'bad')?'btn-bad':'btn-off'" value="Bad" (click)="btnBadClicked()"> 
+              </div>
+            </form>
+
+            <div class="handle-list">
+              <div *ngFor="let handle of handleList">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div id="indicator" [ngClass]="(handle.state == 'bad')?'handle-bad':'handle-good'"></div>
+                    <p>{{handle.handle}}</p>
+                    
+                  </div>
+                  <div class="col-md-4">
+                    <input type="button" value="Delete" class="btn btn-danger" (click)="deleteTask(handle._id)">
+                  </div>
+                </div>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

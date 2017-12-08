@@ -13,6 +13,8 @@
       </div>
   </div>
   <submit-score (submitScore)="SubmitScore($event)" id="submit-score-menu" *ngIf="gameState == 'SubmitScore'" [score]="score"></submit-score>
+  <admin-login (login)="LogIn()" id="login-menu" *ngIf="gameState == 'login'"></admin-login>
+  <settings id="settings-menu" *ngIf="gameState == 'Settings'"></settings>
 </div>
 
 <app-splat *ngIf="gameState ==='Playing'" [splatX]="splatX" [splatY]="splatY"></app-splat>
@@ -21,3 +23,10 @@
 <div id="whd">
     <b><p>Brought to you by WeHeartDigital Ltd <img src="assets/heart.png"></p></b>
 </div>
+
+<div *ngIf="gameState === 'Menu' || gameState ==='Settings'" id="settings-icon">
+  <a (click)="SettingsClicked()"><i class="fa fa-cog"></i></a>  
+</div>
+
+
+

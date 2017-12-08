@@ -10,16 +10,16 @@ import { ChangeDetectorRef } from '@angular/core';
     animations: [
         trigger('myAnimation', [
             state('rToL', style({
-                transform: 'translateX(410%)'
+                transform: 'translateX(400%)'
             })),
             state('lToR', style({
-                transform: 'translateX(-410%)'
+                transform: 'translateX(-400%)'
             })),
             state('bToT', style({
-                transform: 'translateY(410%)'
+                transform: 'translateY(400%)'
             })),
             state('tToB', style({
-                transform: 'translateY(-410%)'
+                transform: 'translateY(-400%)'
             })),
 
             transition('bToT <=> tToB', animate('{{speed}} {{delay}}')),
@@ -127,10 +127,12 @@ export class TweetComponent implements AfterViewInit, OnInit {
                 this.top = '0%';
                 break;
         }
+
     }
 
     ngAfterViewInit() {
-        this.animateMe();
+        console.log("view init");
+       this.animateMe();
     }
 
     animateMe() {

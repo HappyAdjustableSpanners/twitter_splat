@@ -28,6 +28,20 @@
     margin: 0;
 }
 
+#settings-menu {
+    padding:0;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0;
+}
+
+#login-menu {
+    padding:0;
+    vertical-align: middle;
+    display: table-cell;
+    margin: 0;
+}
+
 #menu-container {
     overflow: hidden;
 }
@@ -49,4 +63,11 @@
 
 #whd img {
     max-width: 15px;
+}
+
+#settings-icon {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 5px;
 }

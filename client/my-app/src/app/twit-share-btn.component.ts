@@ -15,7 +15,7 @@ export class TwitShareBtnComponent {
   {
     tw({
       url: 'https://www.google.com',
-      title: 'I scored ' + this.scoreService.GetScore() + ' in Splatter. Try it yourself!',
+      title: 'I scored ' + this.scoreService.GetScore() + ' in Splatter. See how many celeb tweets you can splat!',
     })
   }
 }

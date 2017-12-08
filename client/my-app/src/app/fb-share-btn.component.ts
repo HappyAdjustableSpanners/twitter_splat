@@ -19,7 +19,7 @@ export class FbShareBtnComponent {
     fbShare({
       url: 'https://www.google.com',
       hashtag: '#splatter',
-      quote: 'I scored ' + this.scoreService.GetScore() + ' in Splatter. Try it yourself!',
+      quote: 'I scored ' + this.scoreService.GetScore() + ' in Splatter, see how many celeb tweets you can splat!',
       fbAppId: '1652417111489882',
     })
   }
